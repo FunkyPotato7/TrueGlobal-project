@@ -1,0 +1,89 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+type Task {
+  id: Float!
+  name: String!
+  description: String!
+  dateStart: DateTime!
+  dateEnd: DateTime!
+  category: Category
+}
+
+"""
+A date-time string at UTC, such as 2019-12-03T09:54:33Z, compliant with the date-time format.
+"""
+scalar DateTime
+
+type Category {
+  id: Float!
+  name: String!
+  dateCreated: DateTime!
+  user: User
+  tasks: [Task!]
+}
+
+type User {
+  id: Float!
+  email: String!
+  password: String!
+  role: String!
+  categories: [Category!]
+}
+
+type LoginResponse {
+  access_token: String!
+  user: User!
+}
+
+type RegisterResponse {
+  id: ID!
+  email: String!
+  role: String!
+}
+
+type Query {
+  getAllUsers: [User!]!
+  getOneUser(email: String!): User!
+  getAllCategories: [Category!]!
+  getCategory(id: Float!): Category!
+  getAllTask: [Task!]!
+}
+
+type Mutation {
+  register(registerUserDto: LoginUserDto!): RegisterResponse!
+  login(loginUserDto: LoginUserDto!): LoginResponse
+  createCategory(name: String!): Category!
+  updateCategory(updateCategoryDto: UpdateCategoryDto!): Category!
+  deleteCategory(id: Float!): Category!
+  createTask(createTaskDto: CreateTaskDto!): Task!
+  updateTask(updateTaskDto: UpdateTaskDto!): Task!
+  deleteTask(id: Float!): Task!
+}
+
+input LoginUserDto {
+  email: String!
+  password: String!
+}
+
+input UpdateCategoryDto {
+  id: Float!
+  name: String!
+}
+
+input CreateTaskDto {
+  name: String!
+  description: String!
+  dateStart: DateTime
+  dateEnd: DateTime!
+  categoryId: Float!
+}
+
+input UpdateTaskDto {
+  id: Float!
+  name: String
+  description: String
+  dateStart: DateTime
+  dateEnd: DateTime
+}
