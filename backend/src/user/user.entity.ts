@@ -1,9 +1,8 @@
 import { Column, Entity, OneToMany, PrimaryGeneratedColumn } from 'typeorm';
-import { Field, ID, ObjectType } from '@nestjs/graphql';
+import { Field, ObjectType } from '@nestjs/graphql';
 
 import { UserRole } from './user-role.enum';
 import { Category } from '../category/category.entity';
-import { UserTransformer } from "./user.transformer";
 
 @Entity('users')
 @ObjectType()

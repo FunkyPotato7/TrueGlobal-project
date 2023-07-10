@@ -12,7 +12,7 @@ import { TaskModule } from '../task/task.module';
 @Module({
   imports: [
     TypeOrmModule.forFeature([Category, User, Task]),
-    forwardRef(() => TaskModule) ,
+    forwardRef(() => TaskModule),
     UserModule,
   ],
   providers: [CategoryService, CategoryResolver],

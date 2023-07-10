@@ -26,7 +26,7 @@ export class AuthResolver {
 
   @Mutation(() => LoginResponse, { nullable: true })
   async login(@Args('loginUserDto') loginUserDto: LoginUserDto) {
-    loginUserDto.email = loginUserDto.email.toLowerCase().trim()
+    loginUserDto.email = loginUserDto.email.toLowerCase().trim();
     const user = await this.authService.validateUser(
       loginUserDto.email,
       loginUserDto.password,

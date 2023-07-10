@@ -1,8 +1,8 @@
-import {createAsyncThunk, createSlice} from '@reduxjs/toolkit';
+import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
+import { GraphQLError } from 'graphql/error';
 
-import {ICategory, INewTask, ITask, IUpdateTask} from '../../interfaces';
-import {GraphQLError} from "graphql/error";
-import {TaskService} from "../../services";
+import { ICategory, INewTask, ITask, IUpdateTask } from '../../interfaces';
+import { TaskService } from '../../services';
 
 interface IState {
     tasks: ITask[]

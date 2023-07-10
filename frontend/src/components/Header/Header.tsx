@@ -1,9 +1,8 @@
 import { FC } from 'react';
 import { Button, Typography } from '@mui/material';
-import {useLocation, useNavigate} from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 
 import { AuthService } from '../../services';
-import { useAppSelector } from '../../hooks';
 import css from './Header.module.css';
 
 const Header:FC = () => {

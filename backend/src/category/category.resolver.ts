@@ -14,9 +14,7 @@ export class CategoryResolver {
   constructor(private readonly categoryService: CategoryService) {}
 
   @Query(() => [Category])
-  async getAllCategories(
-    @CurrentUser() user: User
-  ) {
+  async getAllCategories(@CurrentUser() user: User) {
     return this.categoryService.getAll(user);
   }
 
@@ -26,17 +24,15 @@ export class CategoryResolver {
   }
 
   @Mutation(() => Category)
-  async createCategory(
-    @Args('name') name: string,
-    @CurrentUser() user: User
-  ) {
+  async createCategory(@Args('name') name: string, @CurrentUser() user: User) {
     return this.categoryService.createCategory(name, user);
   }
 
   @Mutation(() => Category)
   async updateCategory(
-    @Args('updateCategoryDto') updateCategoryDto: UpdateCategoryDto) {
-    return  this.categoryService.updateCategory(updateCategoryDto);
+    @Args('updateCategoryDto') updateCategoryDto: UpdateCategoryDto,
+  ) {
+    return this.categoryService.updateCategory(updateCategoryDto);
   }
 
   @Mutation(() => Category)

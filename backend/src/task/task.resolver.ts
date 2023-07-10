@@ -18,9 +18,7 @@ export class TaskResolver {
   }
 
   @Mutation(() => Task)
-  async createTask(
-    @Args('createTaskDto') createTaskDto: CreateTaskDto,
-  ) {
+  async createTask(@Args('createTaskDto') createTaskDto: CreateTaskDto) {
     return this.taskService.createTask(createTaskDto);
   }
 

@@ -1,11 +1,16 @@
-import { forwardRef, Inject, Injectable, NotFoundException } from "@nestjs/common";
+import {
+  forwardRef,
+  Inject,
+  Injectable,
+  NotFoundException,
+} from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
 
 import { User } from '../user/user.entity';
 import { Category } from './category.entity';
 import { UpdateCategoryDto } from './dto/update-category.dto';
-import { TaskService } from "../task/task.service";
+import { TaskService } from '../task/task.service';
 
 @Injectable()
 export class CategoryService {
@@ -17,7 +22,10 @@ export class CategoryService {
   ) {}
 
   async getAll(user: User) {
-    return this.categoryRepository.find({ where: { user }, relations: ['tasks'] });
+    return this.categoryRepository.find({
+      where: { user },
+      relations: ['tasks'],
+    });
   }
 
   async getById(id: number) {
@@ -35,7 +43,7 @@ export class CategoryService {
     const category = await this.categoryRepository.create({ name });
     category.user = user;
     const newCategory = await this.categoryRepository.save(category);
-    return this.getById(newCategory.id)
+    return this.getById(newCategory.id);
   }
 
   async updateCategory(updateCategoryDto: UpdateCategoryDto) {

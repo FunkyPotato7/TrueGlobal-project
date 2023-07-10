@@ -1,13 +1,14 @@
 import { FC } from 'react';
-import Dialog from "@mui/material/Dialog";
-import {Field, Form, Formik} from "formik";
-import {TextField} from "formik-material-ui";
-import {useAppDispatch, useAppSelector} from "../../hooks";
-import {taskSchema} from "../../validators";
-import {taskActions} from "../../store";
-import {Button, Typography} from "@mui/material";
+import { useNavigate } from 'react-router-dom';
+import Dialog from '@mui/material/Dialog';
+import { Field, Form, Formik } from 'formik';
+import { Button, Typography } from '@mui/material';
+import { TextField } from 'formik-material-ui';
+
+import { useAppDispatch, useAppSelector } from '../../hooks';
+import { taskSchema } from '../../validators';
+import { taskActions } from '../../store';
 import css from './CreateTaskPage.module.css';
-import {useNavigate} from "react-router-dom";
 
 const CreateTaskPage:FC = () => {
     const { category } = useAppSelector(state => state.taskReducer);

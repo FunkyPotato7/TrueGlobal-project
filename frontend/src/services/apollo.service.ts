@@ -1,9 +1,9 @@
-import {ApolloClient, ApolloLink, createHttpLink, InMemoryCache} from '@apollo/client';
+import { ApolloClient, ApolloLink, createHttpLink, InMemoryCache } from '@apollo/client';
+import { onError } from '@apollo/client/link/error';
 import { setContext } from '@apollo/client/link/context';
 
 import { ACCESS_TOKEN, baseURL } from '../config';
-import {onError} from "@apollo/client/link/error";
-import {AuthService} from "./auth.service";
+import { AuthService } from './auth.service';
 
 const httpLink  = createHttpLink({
     uri: baseURL,
@@ -38,4 +38,4 @@ const client = new ApolloClient({
 
 export {
     client,
-};
+}

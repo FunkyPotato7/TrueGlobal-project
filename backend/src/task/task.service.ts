@@ -1,11 +1,16 @@
-import { forwardRef, Inject, Injectable, NotFoundException } from "@nestjs/common";
+import {
+  forwardRef,
+  Inject,
+  Injectable,
+  NotFoundException,
+} from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
 
 import { CategoryService } from '../category/category.service';
 import { CreateTaskDto } from './dto/create-task.dto';
-import { UpdateTaskDto } from "./dto/update-task.dto";
-import { Category } from "../category/category.entity";
+import { UpdateTaskDto } from './dto/update-task.dto';
+import { Category } from '../category/category.entity';
 import { Task } from './task.entity';
 
 @Injectable()
@@ -23,7 +28,7 @@ export class TaskService {
 
   async getById(id: number) {
     const task = await this.taskRepository.findOne({
-      where: { id }
+      where: { id },
     });
     if (!task) {
       throw new NotFoundException(`Task with id ${id} not found`);
@@ -45,8 +50,8 @@ export class TaskService {
         name: updateTaskDto.name,
         description: updateTaskDto.description,
         dateStart: updateTaskDto.dateStart,
-        dateEnd: updateTaskDto.dateEnd
-      }
+        dateEnd: updateTaskDto.dateEnd,
+      },
     );
     return await this.getById(updateTaskDto.id);
   }

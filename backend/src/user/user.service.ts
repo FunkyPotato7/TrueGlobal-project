@@ -32,5 +32,4 @@ export class UserService {
     const newUser = await this.userRepository.create(registerUserDto);
     return this.userRepository.save(newUser);
   }
-
 }
