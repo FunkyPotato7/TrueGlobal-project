@@ -1,0 +1,43 @@
+.wrapper {
+    width: 60%;
+
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}
+
+.categoryList {
+    width: 100%;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+
+.empty {
+    width: 100%;
+    height: 700px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.form {
+    width: 250px;
+    height: 150px;
+    padding: 20px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.buttons {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+}
